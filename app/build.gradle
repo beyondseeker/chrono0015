@@ -1,19 +1,10 @@
-// android の build のために必要
 apply plugin: 'com.android.application'
-
-// kotlin で書かれた android project を build するには kotlin-android plugin が必要
-// https://kotlinlang.org/docs/reference/using-gradle.html#targeting-android
 apply plugin: 'kotlin-android'
-
-// TODO: 要考察(1): org.jetbrains.kotlin:kotlin-stdlib への依存があれば、削除しても動作する。しかし、そうでなければビルド時にエラーになる。
-// https://developer.android.com/kotlin/ktx
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    // お約束なので問題無し。
     compileSdkVersion 29
 
-    // お約束なので問題無し。
     defaultConfig {
         applicationId "com.objectfanatics.chrono0015"
         minSdkVersion 23
@@ -21,8 +12,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        // JUnit 4 のテストクラス群を利用するため、AndroidJUnitRunner をデフォルトの test instrumentation runner としてセットしている。
-        // instrumented unit test とは実機(やエミュレータ)上で実行される unit test のこと。
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,8 +22,6 @@ android {
         }
     }
 
-    // Androidアプリ開発探求記（その２）で追加した。
-    // https://qiita.com/beyondseeker/items/2b1fba123efbab6c04ae#-jdk%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%81%A6%E3%81%BF%E3%82%8B
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -44,30 +31,13 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    // TODO: 要考察(1): kotlin-android-extensions が利用されていれば、削除しても動作する。しかし、そうでなければビルド時にエラーになる。
     // TODO: jdk8 は要検討。
-    // Cannot access built-in declaration 'kotlin.Unit'. Ensure that you have a dependency on the Kotlin standard library
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
-    // TODO: 要考察(2): 削除しても動作する。
-    // https://developer.android.com/kotlin/ktx
-//    implementation 'androidx.core:core-ktx:1.3.1'
-
-    // appcompat は事実上不可欠な存在。Android Studio から生成されたプロジェクト中のコードでも利用されている。
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-
-    // constraint layout は事実上不可欠と言っていいと思う。Android Studio から生成されたプロジェクト中のコードでも利用されている。
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-
-    // 通常の unit test から利用される JUnit 4 のクラス群への依存。※ org.junit.Test 等
     testImplementation 'junit:junit:4.12'
 
-    // instrumented unit test から利用される JUnit 4 のクラス群への依存。※ AndroidJUnit4, ActivityScenarioRule 等
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-
-    // Espresso testing framework への依存。
-    // Espresso testing framework は UI テストのためのフレームワーク。
-    // @see https://developer.android.com/training/testing/ui-testing/espresso-testing
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 }
