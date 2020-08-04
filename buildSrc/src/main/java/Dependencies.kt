@@ -5,7 +5,7 @@
 /**
  * 複数個所で利用されるバージョン情報
  */
-object Versions {
+private object Versions {
     const val kotlin = "1.3.72"
 }
 
