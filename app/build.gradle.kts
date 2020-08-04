@@ -1,8 +1,7 @@
 plugins {
-    id("com.android.application")
-    // TODO: この extension って逆にわかりづらい気がする。
-    kotlin("android")
-    id("kotlin-android-extensions")
+    id(Plugins.com_android_application)
+    id(Plugins.org_jetbrains_kotlin_android)
+    id(Plugins.kotlin_android_extensions)
 }
 
 android {
@@ -37,16 +36,19 @@ android {
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.0.10")
+//    // TODO: マルチモジュールの時にやりたいなというネタのメモ
+//    implementation(Project__kotlin)
+
+    coreLibraryDesugaring(Deps.com_android_tools__desugar_jdk_libs)
 
     implementation(fileTree("dir" to "libs", "include" to listOf("*.jar")))
 
-    implementation("androidx.appcompat:appcompat:1.1.0")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:${versions.kotlin}")
+    implementation(Deps.androidx_appcompat__appcompat)
+    implementation(Deps.androidx_constraintlayout__constraintlayout)
+    implementation(Deps.org_jetbrains_kotlin__kotlin_stdlib_jdk8)
 
-    testImplementation("junit:junit:4.12")
+    testImplementation(Deps.junit__junit)
 
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
-    androidTestImplementation("androidx.test.ext:junit:1.1.1")
+    androidTestImplementation(Deps.androidx_test_espresso__espresso_core)
+    androidTestImplementation(Deps.androidx_test_ext__junit)
 }
