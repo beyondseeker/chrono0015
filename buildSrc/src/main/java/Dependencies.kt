@@ -54,12 +54,12 @@ object Plugins {
  *   androidTestImplementation(Deps.androidx_test_espresso__espresso_core)
  */
 object Deps {
-    const val androidx_appcompat__appcompat = "androidx.appcompat:appcompat:1.1.0"
+    const val androidx_appcompat__appcompat = "androidx.appcompat:appcompat:1.2.0"
     const val androidx_constraintlayout__constraintlayout = "androidx.constraintlayout:constraintlayout:1.1.3"
     const val androidx_test_espresso__espresso_core = "androidx.test.espresso:espresso-core:3.2.0"
     const val androidx_test_ext__junit = "androidx.test.ext:junit:1.1.1"
     const val com_android_tools__desugar_jdk_libs = "com.android.tools:desugar_jdk_libs:1.0.10"
-    const val junit__junit = "junit:junit:4.12"
+    const val junit__junit = "junit:junit:4.13"
     const val org_jetbrains_kotlin__kotlin_stdlib_jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
 }
 
