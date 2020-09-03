@@ -6,9 +6,9 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.objectfanatics:gradle-plugin-dynamicmodulesplugin:0.0.1'
+        classpath("com.objectfanatics:gradle-plugin-dynamicmodulesplugin:0.0.1")
     }
 }
 
 rootProject.name = "chrono0015"
-apply plugin: 'com.objectfanatics.gradle.plugin.dynamicmodulesplugin'
+apply(mapOf("plugin" to "com.objectfanatics.gradle.plugin.dynamicmodulesplugin"))
