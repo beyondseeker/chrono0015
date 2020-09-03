@@ -8,6 +8,8 @@ plugins {
 
 buildscript {
     repositories {
+        mavenLocal() // for of-commons SNAPSHOT release
+        maven { url = uri("https://beyondseeker.github.io/of-commons/mvn-repo") } // for of-commons
         google()
         jcenter()
     }
