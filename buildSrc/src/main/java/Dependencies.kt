@@ -7,6 +7,7 @@
  */
 private object Versions {
     const val kotlin = "1.3.72"
+    const val ofCommons = "0.0.2-SNAPSHOT" // settings.gradle.kts 側も同期して変更してください。
 }
 
 /**

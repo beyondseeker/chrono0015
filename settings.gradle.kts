@@ -6,7 +6,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath("com.objectfanatics:gradle-plugin-dynamicmodulesplugin:0.0.1")
+        classpath("com.objectfanatics:gradle-plugin-dynamicmodulesplugin:0.0.2-SNAPSHOT")
     }
 }
 
